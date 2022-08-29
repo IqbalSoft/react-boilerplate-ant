@@ -1,17 +1,23 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-
-import * as actions from '../../store/reducers';
-
+ 
 const LandingPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(actions.default);
+    dispatch({ type: 'bankAccount/GET_DATA' });
   }, [dispatch]);
 
+  const { dataBankAccount } = useSelector(({bankAccount}) => bankAccount);
+
   return (
-    <h4>hshs</h4>
+    <>
+      {
+        dataBankAccount && dataBankAccount.map((item, key) => (
+          <div key={key}>{item.category}</div>
+        ))
+      }
+    </>
   );
 };
 
