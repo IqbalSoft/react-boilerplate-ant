@@ -8,7 +8,7 @@ const LandingPage = () => {
     dispatch({ type: 'bankAccount/GET_DATA' });
   }, [dispatch]);
 
-  const { dataBankAccount } = useSelector(({bankAccount}) => bankAccount);
+  const { dataBankAccount } = useSelector(({ bankAccount }) => bankAccount);
 
   return (
     <>
