@@ -3,7 +3,7 @@ import actions from "./actions";
 const initialState = {
   loading: false,
   error: null,
-  dataBankAccount: {}
+  dataBankAccount: null
 };
 
 export default function assessmentReducer(state = initialState, action) {
