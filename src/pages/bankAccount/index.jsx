@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Table, Button, Input, DatePicker } from 'antd';
+import { Table, DatePicker } from 'antd';
 import { FilterOutlined } from '@ant-design/icons';
+
+import { Button, Input } from '../../components';
 
 import './styles.css';
 
@@ -62,7 +64,7 @@ const BankAccountPage = () => {
     {
       key: 'id',
       dataIndex: 'id',
-      render: (id) => <Button type="primary" onClick={() => navigate(`/bank-account/${id}`) }>Detail</Button>
+      render: (id) => <Button type="primary" onClick={() => navigate(`/bank-account/${id}`)}>Detail</Button>
     },
   ];
 
@@ -88,7 +90,7 @@ const BankAccountPage = () => {
     <div className="bank-account-page">
       <h1>Bank Account</h1>
       <div className="search-filter-box">
-        <Input.Search allowClear placeholder="Search By Description" onChange={handleInputSearch} />
+        <Input allowClear placeholder="Search By Description" onChange={handleInputSearch} />
         &nbsp;
         <Button onClick={() => setShowRangeDate(!showRangeDate)} icon={<FilterOutlined />} />
       </div>

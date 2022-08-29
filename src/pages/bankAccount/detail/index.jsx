@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import { Button, Skeleton } from 'antd';
+import { Skeleton } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
-
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
+
+import { Button } from '../../../components';
 
 import './styles.css';
 
