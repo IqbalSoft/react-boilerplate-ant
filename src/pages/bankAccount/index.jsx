@@ -66,7 +66,14 @@ const BankAccountPage = () => {
     },
   ];
 
-  const handleInputSearch = (e) => {};
+  const handleInputSearch = (e) => {
+    const filteredData = dataBankAccount && dataBankAccount.filter((val) => val.description?.toLowerCase().match(e.target.value.toLowerCase()))
+    setData(filteredData);
+
+    if(e.target.value === "") {
+      setData(dataBankAccount && dataBankAccount);
+    }
+  };
 
   const handleFilterRangeDate = (rangeDate) => {
     const filteredData = dataBankAccount && dataBankAccount.filter((val) => val.transactionDate >= rangeDate[0] && val.transactionDate <= rangeDate[1])
@@ -81,7 +88,8 @@ const BankAccountPage = () => {
     <div className="bank-account-page">
       <h1>Bank Account</h1>
       <div className="search-filter-box">
-        <Input placeholder="Search By Description" onChange={handleInputSearch} />
+        <Input.Search allowClear placeholder="Search By Description" onChange={handleInputSearch} />
+        &nbsp;
         <Button onClick={() => setShowRangeDate(!showRangeDate)} icon={<FilterOutlined />} />
       </div>
 
