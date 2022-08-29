@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Table, Button } from 'antd';
+import { Table, Button, Input, DatePicker } from 'antd';
+import { FilterOutlined } from '@ant-design/icons';
 
 import './styles.css';
+
+const { RangePicker } = DatePicker;
 
 const BankAccountPage = () => {
   const dispatch = useDispatch();
@@ -16,11 +19,11 @@ const BankAccountPage = () => {
   const { dataBankAccount, loading } = useSelector(({ bankAccount }) => bankAccount);
 
   const [data, setData] = useState([]);
+  const [showRangeDate, setShowRangeDate] = useState(false);
 
   useEffect(() => {
     setData(dataBankAccount && dataBankAccount);
   }, [dataBankAccount]);
-  
 
   const columns = [
     {
@@ -62,10 +65,34 @@ const BankAccountPage = () => {
       render: (id) => <Button type="primary" onClick={() => navigate(`/bank-account/${id}`) }>Detail</Button>
     },
   ];
-  
+
+  const handleInputSearch = (e) => {};
+
+  const handleFilterRangeDate = (rangeDate) => {
+    const filteredData = dataBankAccount && dataBankAccount.filter((val) => val.transactionDate >= rangeDate[0] && val.transactionDate <= rangeDate[1])
+    setData(filteredData);
+
+    if(rangeDate[0] === ""){
+      setData(dataBankAccount && dataBankAccount); 
+    }
+  };
+
   return (
     <div className="bank-account-page">
       <h1>Bank Account</h1>
+      <div className="search-filter-box">
+        <Input placeholder="Search By Description" onChange={handleInputSearch} />
+        <Button onClick={() => setShowRangeDate(!showRangeDate)} icon={<FilterOutlined />} />
+      </div>
+
+      {
+        showRangeDate ?
+          <div className="range-picker-box">
+            <RangePicker onChange={(_, rangeDate) => handleFilterRangeDate(rangeDate)} />
+          </div>
+        : null
+      }
+
       <Table dataSource={data} columns={columns} loading={loading} rowKey={(record) => record?.id} />
     </div>
   );

@@ -1,8 +1,17 @@
 .bank-account-page {
   padding: 20px;
-
 }
 
-h1 {
+.search-filter-box {
+  display: flex;
+  margin-bottom: 20px;
+  width: 300px;
+}
+
+.search-filter-box input {
+  margin-right: 10px;
+}
+
+.range-picker-box {
   margin-bottom: 20px;
 }
