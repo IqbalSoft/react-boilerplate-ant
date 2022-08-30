@@ -8,7 +8,8 @@ const InputComponents = ({
   className,
   allowClear
 }) => {
-  return <Input className={className} placeholder={placeholder} onChange={onChange} allowClear={allowClear} />;
+  return <Input className={className} placeholder={placeholder} onChange={onChange} allowClear={allowClear} data-testid="input-component"
+  />;
 };
 
 InputComponents.propTypes = {

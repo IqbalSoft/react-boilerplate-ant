@@ -10,7 +10,7 @@ const ButtonComponent = ({
   ghost,
   icon
 }) => {
-  return <Button className={className} type={type} onClick={onClick} ghost={ghost} icon={icon}>{children}</Button>
+  return <Button data-testid="button-component" className={className} type={type} onClick={onClick} ghost={ghost} icon={icon}>{children}</Button>
 };
 
 ButtonComponent.propTypes = {
