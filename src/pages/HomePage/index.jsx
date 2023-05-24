@@ -3,8 +3,11 @@ import React from "react";
 import './styles.scss';
 import { Button, Input } from "antd";
 import { RightOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
   const dummy = [
     {
       id: 5,
@@ -54,7 +57,7 @@ const HomePage = () => {
       <div className="featured-section">
         <div className="header-section">
           <div className="title">Featured Books</div>
-          <Button type="link">See more <RightOutlined /></Button>
+          <Button type="link" onClick={() => navigate('/explore')}>See more <RightOutlined /></Button>
         </div>
 
         <div className="list-books">

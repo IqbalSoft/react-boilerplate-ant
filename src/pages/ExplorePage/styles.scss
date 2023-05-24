@@ -1,0 +1,106 @@
+.explore-page {
+  background-color: white;
+  padding: 100px;
+
+  .explore-books {
+    background-image: url('../../assets/books.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right center;
+    margin-bottom: 60px;
+
+    .title {
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 100%;
+      margin-bottom: 33px;
+    }
+
+    .search-field {
+      width: 70%;
+
+      input {
+        border: 3px solid #FFDADA;
+        outline: none;
+        border-radius: 15px 0px 0px 15px;
+        font-size: 20px;
+      }
+
+      button {
+        height: fit-content;
+        margin-left: 10px;
+        background-color: #FFDADA;
+        height: 45px;
+        border: 3px solid #FFDADA !important;
+        border-radius: 0px 15px 15px 0px !important;
+
+        svg {
+          color: white;
+          font-size: 22px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .list-books {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    .card-books {
+      margin-bottom: 40px;
+      transition: .3s;
+
+      &:hover {
+        box-shadow: 10px 5px 15px rgba(255, 149, 161, 0.5);
+        transition: .3s;
+        cursor: pointer;
+      }
+
+      .text {
+        padding: 10px;
+      }
+
+      .image img {
+        width: 250px;
+        height: 350px;
+        margin-bottom: 7px;
+      }
+
+      .publish {
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 20px;
+        color: #FF95A1;
+        margin-bottom: 6px;
+      }
+
+      .title {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 23px;
+        margin-bottom: 6px;
+      }
+
+      .author {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+        color: rgba(17, 24, 39, 0.6);
+        margin-bottom: 6px;
+      }
+
+      .genre {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 16px;
+        color: #FF95A1;
+      }
+    }
+  }
+}
