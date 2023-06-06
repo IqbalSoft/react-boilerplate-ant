@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-import bankAccount from './bankAccount/reducer';
+import auth from './auth/reducer';
 
 const createRootReducer = () => combineReducers({
-  bankAccount
-}) ;
+  auth
+});
 
 export default createRootReducer;
