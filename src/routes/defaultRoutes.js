@@ -6,11 +6,6 @@ const DefaultRoutes = [
     component: lazy(() => import('../pages/HomePage')),
     exact: true
   },
-  {
-    path: '/explore',
-    component: lazy(() => import('../pages/ExplorePage')),
-    exact: true
-  }
 ];
 
 export default DefaultRoutes;
